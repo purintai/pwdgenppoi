@@ -34,7 +34,6 @@ function nencode($num, $chars) {
 	return $str;
 }
 
-
 function superh2d($hexnum) {
 	$dec = "0";
 	$point = 0;
@@ -54,5 +53,4 @@ else {
 }
 
 echo 'pwd:<input type="text" name="pwd" value="'. $pwd. '">';
-#echo 'generated: <input type="text" name="pwd" value="unko">';
 ?>
