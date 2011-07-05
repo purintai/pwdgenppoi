@@ -43,14 +43,16 @@ function superh2d($hexnum) {
 	}
 	return $dec;
 }
-
-$pwd = nencode(bcmul(superh2d(sha1($_POST["masterkey"])),superh2d(md5($_POST["subkey"]))),$_POST["key_type"]);
-$pwd = substr($pwd,5,$_POST["length"]);
-if (preg_match("/[0-9]/", $pwd)) {
+if ($_POST["masterkey"] == "") {
 }
 else {
-        $pwd = substr($pwd,0,$_POST["length"] - 1). substr(superh2d(md5($pwd)),4,1);
+	$pwd = nencode(bcmul(superh2d(sha1($_POST["masterkey"])),superh2d(md5($_POST["subkey"]))),$_POST["key_type"]);
+	$pwd = substr($pwd,5,$_POST["length"]);
+	if (preg_match("/[0-9]/", $pwd)) {
+	}
+	else {
+        	$pwd = substr($pwd,0,$_POST["length"] - 1). substr(superh2d(md5($pwd)),4,1);
+	}
+	echo 'pwd:<input type="text" name="pwd" value="'. $pwd. '">';
 }
-
-echo 'pwd:<input type="text" name="pwd" value="'. $pwd. '">';
 ?>
