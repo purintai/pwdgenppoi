@@ -1,14 +1,3 @@
-pwdgenppoi for php<BR>
-<form name="pwdgenppoi" action="./" method="POST">
-mkey:<input type="password" name="masterkey"><BR>
-skey:<input type="text" name="subkey"><BR>
-klen:<input type="text" name="length" value="16" maxlength="2" size="2"> type:<select name="key_type">
- <option value="1">09azAZSym
- <option value="2">09azAZ
- <option value="3">09az
- <option value="4">09
-</select> 
-<input type="submit" value=" Go "></form><BR>
 <?
 function nencode($num, $chars) {
 	$str = "";
@@ -43,6 +32,18 @@ function superh2d($hexnum) {
 	}
 	return $dec;
 }
+
+echo 'pwdgenppoi for php<BR>
+<form name="pwdgenppoi" action="./" method="POST">
+mkey:<input type="password" name="masterkey" istyle="3" value="'.$_POST["masterkey"].'"><BR>
+skey:<input type="text" name="subkey" istyle="3"><BR>
+klen:<input type="text" name="length" value="16" maxlength="2" size="2" istyle="4"> type:<select name="key_type">
+ <option value="1">09azAZSym
+ <option value="2">09azAZ
+ <option value="3">09az
+ <option value="4">09
+</select> 
+<input type="submit" value=" Go "></form><BR>';
 if ($_POST["masterkey"] == "") {
 }
 else {
